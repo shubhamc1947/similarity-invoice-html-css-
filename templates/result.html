@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Comparison Result</title>
+</head>
+<body>
+    <h1>Comparison Result</h1>
+
+    <h2>Input Invoice Features</h2>
+    <p>Invoice Number: {{ input_features['invoice_number'] }}</p>
+    <p>Date: {{ input_features['date'] }}</p>
+    <p>Amount: {{ input_features['amount'] }}</p>
+    <p>Keywords: {{ ', '.join(input_features['keywords']) }}</p>
+
+    {% if most_similar_invoice %}
+    <h2>Most Similar Invoice</h2>
+    <p>Filename: {{ most_similar_invoice['filename'] }}</p>
+    <p>Combined Similarity Score: {{ most_similar_invoice['similarity_score'] }}</p>
+    <p>Content Similarity Score: {{ most_similar_invoice['content_similarity'] }}</p>
+    <p>Structural Similarity Score: {{ most_similar_invoice['structural_similarity'] }}</p>
+    <h3>Features</h3>
+    <p>Invoice Number: {{ most_similar_invoice['invoice_features']['invoice_number'] }}</p>
+    <p>Date: {{ most_similar_invoice['invoice_features']['date'] }}</p>
+    <p>Amount: {{ most_similar_invoice['invoice_features']['amount'] }}</p>
+    <p>Keywords: {{ ', '.join(most_similar_invoice['invoice_features']['keywords']) }}</p>
+    {% else %}
+    <p>No similar invoice found.</p>
+    {% endif %}
+
+</body>
+</html>

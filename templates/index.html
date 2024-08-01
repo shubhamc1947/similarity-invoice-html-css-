@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Similarity Matching</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upload Invoice</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/pdf">
+        <input type="submit" value="Upload Invoice">
+    </form>
+
+    <h1>Compare Invoice</h1>
+    <form action="/compare" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/pdf">
+        <input type="submit" value="Compare Invoice">
+    </form>
+</body>
+</html>
